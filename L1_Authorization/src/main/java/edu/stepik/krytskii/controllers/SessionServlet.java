@@ -1,9 +1,8 @@
-package edu.stepik.authorization.controllers;
+package edu.stepik.krytskii.controllers;
 
 import com.google.gson.Gson;
-import edu.stepik.authorization.entities.UserProfile;
-import edu.stepik.authorization.services.AccountService;
-import edu.stepik.authorization.services.impl.AccountServiceImpl;
+import edu.stepik.krytskii.entities.UserProfile;
+import edu.stepik.krytskii.services.AccountService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

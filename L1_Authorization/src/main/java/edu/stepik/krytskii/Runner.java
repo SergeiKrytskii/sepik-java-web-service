@@ -1,8 +1,7 @@
-package edu.stepik.authorization;
+package edu.stepik.krytskii;
 
-import edu.stepik.authorization.controllers.*;
-import edu.stepik.authorization.services.AccountService;
-import edu.stepik.authorization.services.impl.AccountServiceImpl;
+import edu.stepik.krytskii.services.AccountService;
+import edu.stepik.krytskii.services.impl.AccountServiceImpl;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;

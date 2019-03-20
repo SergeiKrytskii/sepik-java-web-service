@@ -1,7 +1,7 @@
-package edu.stepik.authorization.services.impl;
+package edu.stepik.krytskii.services.impl;
 
-import edu.stepik.authorization.entities.UserProfile;
-import edu.stepik.authorization.services.AccountService;
+import edu.stepik.krytskii.entities.UserProfile;
+import edu.stepik.krytskii.services.AccountService;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

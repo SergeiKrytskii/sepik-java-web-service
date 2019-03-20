@@ -1,6 +1,6 @@
-package edu.stepik.authorization.services;
+package edu.stepik.krytskii.services;
 
-import edu.stepik.authorization.entities.UserProfile;
+import edu.stepik.krytskii.entities.UserProfile;
 
 public interface AccountService {
 

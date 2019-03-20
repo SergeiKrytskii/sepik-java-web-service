@@ -1,4 +1,4 @@
-package edu.stepik.authorization.entities;
+package edu.stepik.krytskii.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
