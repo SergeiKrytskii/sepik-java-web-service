@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class SignInServlet extends HttpServlet {
+public class SessionServlet extends HttpServlet {
 
     private AccountService accountService;
 
-    public SignInServlet(AccountService accountService) {
+    public SessionServlet(AccountService accountService) {
         this.accountService = accountService;
     }
 

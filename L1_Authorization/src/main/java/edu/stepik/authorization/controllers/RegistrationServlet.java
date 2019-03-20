@@ -8,16 +8,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
-public class SignUpServlet extends HttpServlet {
+public class RegistrationServlet extends HttpServlet {
 
     private AccountService accountService;
 
-    public SignUpServlet (AccountService accountService){
+    public RegistrationServlet (AccountService accountService){
         this.accountService = accountService;
     }
 
@@ -33,7 +31,7 @@ public class SignUpServlet extends HttpServlet {
             response.getWriter().print(profile);
         } else {
             response.setContentType("text/html;charset=utf-8");
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.setStatus(HttpServletResponse.SC_NO_CONTENT);
         }
     }
 
@@ -64,14 +62,22 @@ public class SignUpServlet extends HttpServlet {
         while ((c = reader.readLine()) != null){
             sb.append(c);
         };
-        response.getWriter().print(sb.toString() + "\n");
         Gson gson = new Gson();
         UserProfile userProfile = gson.fromJson(sb.toString(), UserProfile.class);
-        response.getWriter().print("\n" + userProfile);
-//        System.out.println(sb.toString());
-//        response.getWriter().print("\n" + gson.fromJson(sb.toString(), UserProfile.class));
-
-
+        if (userProfile != null){
+            if (userProfile.getPassword().equals(accountService.getUserByLogin(userProfile.getLogin()))){
+                accountService.updateUserProfile(userProfile.getLogin(), userProfile);
+                response.setStatus(HttpServletResponse.SC_OK);
+                response.setContentType("text/html;charset=utf-8");
+                response.getWriter().print("Updated : \n" + userProfile.toString());
+            } else {
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                response.setContentType("text/html;charset=utf-8");
+            }
+        } else {
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            response.setContentType("text/html;charset=utf-8");
+        }
     }
 
     //unregister
